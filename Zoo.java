@@ -1,29 +1,26 @@
 import java.util.*;
 import Lib.*;
+import Lib.Animals.*;
 
 public class Zoo {
     public static void main(String[] args) {
-        List<Animal>animals = new ArrayList();
+        List<Animal> animals = new ArrayList<>();
         animals.add(new Lion("Lion"));
         animals.add(new Eagle("Eagle"));
         animals.add(new Penguin("Penguin"));
-        animals.add(new  Dolphin(" Dolphin"));
+        animals.add(new Dolphin("Dolphin"));
 
-        for (Animal a : animals ) {
-            System.out.print(a.getName());
-            System.out.println(a.makeSound());
+        for (Animal animal : animals ) {
+            System.out.print(animal.getName());
+            System.out.println(animal.makeSound());
         }
 
-        for (Animal m : animals) {
-            if (m instanceof Flyable) {
-                System.out.println(((Flyable)m).fly());
-            }
-            else if (m instanceof Swimable) {
-                System.out.println(((Swimable)m).swim());
-            }
-            else {
-                System.out.println(m.getName()+"Walk");
-            }
+        for (Animal animal : animals ) {
+            if (animal instanceof Flyable) {
+                System.out.println(((Flyable)animal).fly());
+            }else if (animal instanceof Swimable ) {
+                System.out.println(((Swimable)animal).swim());
+            }else System.out.println("The " + animal.getName() + " walking in the zoo.");
         }
     }
 }
